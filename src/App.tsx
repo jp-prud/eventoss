@@ -6,7 +6,7 @@ import { Button } from './components/Button';
 import { Progress } from './components/Progress';
 import { cn } from './lib/utils';
 import { getPresignedURL } from './services/getPresignedURL';
-// import { uploadFile } from './services/uploadFile';
+import { uploadFile } from './services/uploadFile';
 
 interface IUpload {
   file: File;
@@ -18,7 +18,7 @@ export function App() {
   const [uploads, setUploads] = useState<IUpload[]>([]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    
+
     onDrop: (acceptedFiles) => {
       setUploads(prevState => prevState.concat(
         acceptedFiles.map(file => ({ file, progress: 0 }))
